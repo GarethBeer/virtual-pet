@@ -1,12 +1,10 @@
-function Pets (name) {
-    const pets = {};
-    pets.name = name
-    console.log(pets)
-    return pets
+function Pet (name) {
+    this.name = name
+    
     
 }
 
 
-module.exports = { Pets
 
-}
+
+module.exports =  Pet
