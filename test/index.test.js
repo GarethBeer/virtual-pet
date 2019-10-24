@@ -1,5 +1,3 @@
-
-
 const Pet = require("../src")
 
 describe('Create a new object with defined properties', () => {
@@ -94,4 +92,39 @@ describe('Create a prototype for the pet which changes multiple values', () => {
         cat.feed()
         expect(cat.hunger).toBe(7)
     })
+
+    test('alarm to let us know pet fitness is low and needs a walk and needs a feed', () => { 
+       const dog = new Pet('Max');
+       dog.growUp();
+       dog.growUp();
+       dog.growUp();
+       expect(dog.checkUp()).toStrictEqual('I am hungry and I need a walk')
+    })
+    
+    test('alarm to let us know pet is hungry', () => { 
+        const dog = new Pet('Max');
+        dog.growUp();
+        
+        expect(dog.checkUp()).toStrictEqual('I am hungry')
+     })
+
+     test('alarm to tell me if fitness is low and needs a walk', () => { 
+        const dog = new Pet('Max');
+        dog.feed();
+        dog.growUp();
+        dog.growUp();
+        dog.growUp();
+        dog.feed();
+        dog.feed();
+        dog.feed();
+        dog.feed();
+
+        expect(dog.checkUp()).toStrictEqual('I need a walk')
+     })
+     test('alarm to tell us if it is not tired and not hungry', () => { 
+        const dog = new Pet('Max');
+        
+
+        expect(dog.checkUp()).toStrictEqual('I feel great!')
+     })
 });
