@@ -38,7 +38,7 @@ describe('Create a prototype for the pet which changes multiple values', () => {
         expect(dog.hunger).toBe(0);
         expect(dog.fitness).toBe(10);
     })
-    test('testing method increases initial values when called', () => { 
+    test('testing method increases initial values to by 1, 5 and -3', () => { 
         const dog = new Pet ('Max');
                 
         expect(dog.name).toStrictEqual('Max')
@@ -50,5 +50,48 @@ describe('Create a prototype for the pet which changes multiple values', () => {
         expect(dog.hunger).toBe(5);
         expect(dog.fitness).toBe(7);
         console.log(dog.age,dog.hunger,dog.fitness)
+    })
+    test('testing method increases initial values when called', () => { 
+        const cat = new Pet ('leo');
+                
+        expect(cat.name).toStrictEqual('leo')
+        expect(cat.age).toBe(0);
+        expect(cat.hunger).toBe(0);
+        expect(cat.fitness).toBe(10);
+        cat.growUp();
+        expect(cat.age).toBe(1);
+        expect(cat.hunger).toBe(5);
+        expect(cat.fitness).toBe(7);
+        cat.growUp();
+        expect(cat.fitness).toBe(4)
+        console.log(cat.age,cat.hunger,cat.fitness)
+    })
+    test('testing method increases initial values when called', () => { 
+        const cat = new Pet ('leo');
+                
+        expect(cat.name).toStrictEqual('leo')
+        expect(cat.age).toBe(0);
+        expect(cat.hunger).toBe(0);
+        expect(cat.fitness).toBe(10);
+        cat.growUp();
+        cat.growUp();
+        expect(cat.fitness).toBe(4)
+        cat.walk();
+        expect(cat.fitness).toBe(8)
+        cat.walk();
+        expect(cat.fitness).toBe(10)
+
+        console.log(cat.age,cat.hunger,cat.fitness)
+    })
+    test('testing feed method decreases hunger when called', () => { 
+        const cat = new Pet ('leo');
+        expect(cat.hunger).toBe(0)
+    })
+    test('testing feed method decreases hunger when called', () => { 
+        const cat = new Pet ('leo');
+        cat.growUp();
+        cat.growUp();
+        cat.feed()
+        expect(cat.hunger).toBe(7)
     })
 });
